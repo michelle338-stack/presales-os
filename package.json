@@ -1,0 +1,9 @@
+{
+  "name": "presales-os-v1",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Presales OS — Novark AI. Backend API for Majan Technology Solutions.",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0"
+  }
+}
