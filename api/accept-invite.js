@@ -43,6 +43,18 @@ export default async function handler(req, res) {
       .update({ used: true, used_by: userData.user.id })
       .eq('code', invite.code);
 
+    // Start the 7-day free trial on first signup — only if the company hasn't been
+    // activated any other way yet (leaves the Novark internal test company, which is
+    // forced 'active' manually, untouched).
+    const { data: sub } = await supabaseAdmin
+      .from('subscriptions').select('id, status').eq('company_id', invite.company_id).single();
+    if (sub && sub.status === 'inactive') {
+      const trialEnd = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString();
+      await supabaseAdmin.from('subscriptions')
+        .update({ status: 'trialing', current_period_end: trialEnd, updated_at: new Date().toISOString() })
+        .eq('id', sub.id);
+    }
+
     res.status(200).json({ success: true });
   } catch (err) {
     sendError(res, err);
