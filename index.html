@@ -14,11 +14,23 @@
   --border:#1E1E1E;--border-soft:#181818;--purple:#7F77DD;--teal:#1D9E75;
   --coral:#D85A30;--amber:#C99A3A;--t1:#FFFFFF;--t2:#888888;--t3:#444444;
   --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --tint-neutral:#1c1c1c;--tint-neutral-active:#211f33;
+  --tint-green-bg:#0f1a16;--tint-green-border:#16332a;
+  --tint-purple-bg:#13121f;--tint-purple-border:#262338;
+  --tint-amber-bg:#1a1508;--tint-amber-border:#332a10;
+  --tint-coral-bg:#2a1410;
+  --bubble-user-bg:#211f33;--bubble-user-border:#2b2840;--bubble-user-text:#e7e5f5;
 }
 :root[data-theme="light"]{
   --bg:#FAFAFA;--surface:#FFFFFF;--surface-2:#F3F3F5;--inset:#F0F0F2;
   --border:#E4E4E7;--border-soft:#ECECEE;--purple:#6D63D6;--teal:#0F8F63;
   --coral:#C2451E;--amber:#A87A1E;--t1:#131316;--t2:#5B5B63;--t3:#9A9AA2;
+  --tint-neutral:#EDEDF0;--tint-neutral-active:#EEECFC;
+  --tint-green-bg:#E6F7EF;--tint-green-border:#BFE8D5;
+  --tint-purple-bg:#EEECFC;--tint-purple-border:#D9D4F5;
+  --tint-amber-bg:#FBF3DF;--tint-amber-border:#EFDFAE;
+  --tint-coral-bg:#FBEAE5;
+  --bubble-user-bg:#EEECFC;--bubble-user-border:#D9D4F5;--bubble-user-text:#3A3560;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 html,body{height:100%;}
@@ -40,10 +52,10 @@ body{background:var(--bg);color:var(--t1);font-family:'Inter',system-ui,-apple-s
 .nav-item svg{width:16px;height:16px;flex:0 0 16px;stroke-width:2;}
 .nav-item:hover{background:var(--surface-2);color:var(--t1);}
 .nav-item.active{background:var(--surface-2);color:var(--t1);border-left:2px solid var(--purple);}
-.nav-item .count{margin-left:auto;font-family:var(--mono);font-size:10.5px;background:#1c1c1c;color:var(--t2);padding:1px 6px;border-radius:20px;min-width:20px;text-align:center;}
-.nav-item.active .count{background:#211f33;color:var(--purple);}
+.nav-item .count{margin-left:auto;font-family:var(--mono);font-size:10.5px;background:var(--tint-neutral);color:var(--t2);padding:1px 6px;border-radius:20px;min-width:20px;text-align:center;}
+.nav-item.active .count{background:var(--tint-neutral-active);color:var(--purple);}
 .user{padding:12px;border-top:1px solid var(--border-soft);display:flex;align-items:center;gap:10px;}
-.avatar{width:32px;height:32px;flex:0 0 32px;border-radius:8px;background:#211f33;color:var(--purple);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:11.5px;letter-spacing:.03em;}
+.avatar{width:32px;height:32px;flex:0 0 32px;border-radius:8px;background:var(--tint-neutral-active);color:var(--purple);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:11.5px;letter-spacing:.03em;}
 .user .name{font-size:12px;font-weight:600;color:var(--t1);}
 .user .role{font-size:10.5px;color:var(--t3);margin-top:1px;}
 
@@ -84,9 +96,9 @@ body{background:var(--bg);color:var(--t1);font-family:'Inter',system-ui,-apple-s
 .sec-label{font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--t2);font-weight:600;}
 .badge{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:600;padding:3px 9px;border-radius:20px;border:1px solid var(--border);}
 .badge .bdot{width:6px;height:6px;border-radius:50%;flex:0 0 6px;}
-.badge.green{color:var(--teal);background:#0f1a16;border-color:#16332a;}
+.badge.green{color:var(--teal);background:var(--tint-green-bg);border-color:var(--tint-green-border);}
 .badge.green .bdot{background:var(--teal);}
-.badge.purple{color:var(--purple);background:#13121f;border-color:#262338;}
+.badge.purple{color:var(--purple);background:var(--tint-purple-bg);border-color:var(--tint-purple-border);}
 .badge.purple .bdot{background:var(--purple);}
 .card{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
 .card-pad{padding:14px;}
@@ -111,7 +123,7 @@ body{background:var(--bg);color:var(--t1);font-family:'Inter',system-ui,-apple-s
 .vendor .vname{font-size:12px;font-weight:600;color:var(--t1);}
 .vendor .vitems{font-size:10.5px;color:var(--t3);margin-top:1px;}
 .vendor .vbarwrap{width:90px;flex:0 0 90px;}
-.vbar{height:3px;border-radius:2px;background:#1c1c1c;overflow:hidden;}
+.vbar{height:3px;border-radius:2px;background:var(--tint-neutral);overflow:hidden;}
 .vbar span{display:block;height:100%;border-radius:2px;}
 .vendor .vpct{font-family:var(--mono);font-size:11.5px;font-weight:500;width:38px;text-align:right;flex:0 0 38px;}
 .rfq-inset{background:var(--inset);border:1px solid var(--border);border-radius:8px;padding:12px;font-size:11px;}
@@ -144,7 +156,7 @@ body{background:var(--bg);color:var(--t1);font-family:'Inter',system-ui,-apple-s
 .msg.user{align-self:flex-end;align-items:flex-end;}
 .msg.ai{align-self:flex-start;align-items:flex-start;}
 .bubble{padding:9px 11px;border-radius:10px;font-size:12px;line-height:1.5;}
-.msg.user .bubble{background:#211f33;color:#e7e5f5;border:1px solid #2b2840;border-bottom-right-radius:3px;}
+.msg.user .bubble{background:var(--bubble-user-bg);color:var(--bubble-user-text);border:1px solid var(--bubble-user-border);border-bottom-right-radius:3px;}
 .msg.ai .bubble{background:var(--surface-2);color:var(--t1);border:1px solid var(--border);border-bottom-left-radius:3px;}
 .bubble .ref{font-family:var(--mono);color:var(--purple);}
 .bubble .num{font-family:var(--mono);}
@@ -154,9 +166,9 @@ body{background:var(--bg);color:var(--t1);font-family:'Inter',system-ui,-apple-s
 .chips:empty{margin-bottom:0;}
 .chip{display:flex;align-items:center;gap:6px;background:var(--inset);border:1px solid var(--border);border-radius:6px;padding:4px 6px 4px 8px;font-size:10.5px;color:var(--t2);}
 .chip .ctype{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.04em;padding:1px 4px;border-radius:3px;}
-.chip .ctype.pdf{background:#2a1410;color:var(--coral);}
-.chip .ctype.eml{background:#13121f;color:var(--purple);}
-.chip .ctype.txt{background:#1a1a0a;color:var(--amber);}
+.chip .ctype.pdf{background:var(--tint-coral-bg);color:var(--coral);}
+.chip .ctype.eml{background:var(--tint-purple-bg);color:var(--purple);}
+.chip .ctype.txt{background:var(--tint-amber-bg);color:var(--amber);}
 .chip .cname{font-family:var(--mono);color:var(--t1);font-size:10px;}
 .chip .cx{width:14px;height:14px;border-radius:3px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--t3);}
 .chip .cx:hover{background:var(--surface-2);color:var(--t2);}
@@ -263,8 +275,8 @@ body{background:var(--bg);color:var(--t1);font-family:'Inter',system-ui,-apple-s
 .tr-ministry{font-size:12px;color:var(--t1);font-weight:500;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .tr-meta{font-size:10.5px;color:var(--t3);font-family:var(--mono);width:150px;flex:0 0 150px;}
 .tr-status{font-size:10px;font-weight:600;padding:3px 9px;border-radius:20px;flex:0 0 auto;white-space:nowrap;}
-.tr-status.pending{color:var(--amber);background:#1a1508;border:1px solid #332a10;}
-.tr-status.sent{color:var(--teal);background:#0f1a16;border:1px solid #16332a;}
+.tr-status.pending{color:var(--amber);background:var(--tint-amber-bg);border:1px solid var(--tint-amber-border);}
+.tr-status.sent{color:var(--teal);background:var(--tint-green-bg);border:1px solid var(--tint-green-border);}
 .offer-tender-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;gap:14px;}
 .otc-ref{font-family:var(--mono);font-size:11px;color:var(--purple);}
 .otc-ministry{font-size:12.5px;font-weight:600;color:var(--t1);margin-top:3px;}
@@ -693,8 +705,35 @@ async function apiCall(path, opts = {}) {
     }
   });
   const data = await res.json().catch(() => ({}));
-  if (!res.ok) throw new Error(data.error || `Request failed (${res.status})`);
+  if (!res.ok) {
+    const err = new Error(data.error || `Request failed (${res.status})`);
+    err.status = res.status;
+    if (data.whopUrl) err.whopUrl = data.whopUrl;
+    if (res.status === 402) showBillingBlockedOverlay(err.message, err.whopUrl);
+    throw err;
+  }
   return data;
+}
+
+// Full-screen block shown when the company's trial/subscription has lapsed —
+// deliberately more prominent than a toast since AI features are fully unusable
+// until this is resolved.
+function showBillingBlockedOverlay(message, whopUrl) {
+  if (document.getElementById('billing-blocked-overlay')) return; // already showing
+  const overlay = document.createElement('div');
+  overlay.id = 'billing-blocked-overlay';
+  overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;z-index:5000;';
+  overlay.innerHTML = `
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;max-width:380px;padding:28px;text-align:center;">
+      <div style="width:44px;height:44px;border-radius:12px;background:var(--tint-amber-bg);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px;color:var(--amber);"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/></svg>
+      </div>
+      <div style="font-size:14px;font-weight:600;color:var(--t1);margin-bottom:8px;">Subscription required</div>
+      <div style="font-size:12.5px;color:var(--t2);line-height:1.6;margin-bottom:20px;">${esc(message)}</div>
+      <a href="${esc(whopUrl || 'https://whop.com/novark-ai-agency/presales-os-majan-technology-solutions/')}" target="_blank" rel="noopener" class="btn btn-primary" style="justify-content:center;padding:10px;width:100%;text-decoration:none;">Subscribe on Whop →</a>
+      <div style="font-size:10.5px;color:var(--t3);margin-top:14px;">Already paid? It can take a minute to sync — try refreshing shortly.</div>
+    </div>`;
+  document.body.appendChild(overlay);
 }
 
 function logActivity(text, icon) {
@@ -1049,7 +1088,7 @@ async function handleFile(file) {
     appendAIMessage(msg);
     showToast(`Tender processed — ${tender.items.length} items, ${vendors.length} vendors matched`,'success');
   } catch(e) {
-    showToast(e.message || 'Error processing PDF','error');
+    if (e.status !== 402) showToast(e.message || 'Error processing PDF','error');
     console.error(e);
   } finally {
     setLoading(false);
@@ -1169,7 +1208,7 @@ async function handleGenerateRFQs() {
     appendAIMessage(`RFQs drafted for ${names}. Each references <span class="ref">${esc(state.tender.refNo)}</span> with your deadline. Review each email below and click "Copy" to send via your email client.`);
     showToast(`${rfqs.length} RFQ emails ready`,'success');
   } catch(e) {
-    showToast(e.message||'Error generating RFQs','error');
+    if (e.status !== 402) showToast(e.message||'Error generating RFQs','error');
     console.error(e);
   } finally { setLoading(false); }
 }
