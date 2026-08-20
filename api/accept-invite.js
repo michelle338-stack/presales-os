@@ -19,11 +19,12 @@ export default async function handler(req, res) {
 
     const { code } = req.body;
     if (!code) { const err = new Error('Invite code is required'); err.status = 400; throw err; }
+    const normalizedCode = code.trim().toUpperCase();
 
     const { data: invite, error: inviteErr } = await supabaseAdmin
       .from('invite_codes')
       .select('code, company_id, used')
-      .eq('code', code.trim())
+      .ilike('code', normalizedCode)
       .single();
 
     if (inviteErr || !invite) { const err = new Error('Invalid invite code'); err.status = 404; throw err; }
