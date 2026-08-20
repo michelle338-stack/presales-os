@@ -27,7 +27,7 @@ export async function requireActiveSubscription(companyId) {
     if (expired) {
       // Flip it once so we don't recompute this on every request going forward
       await supabaseAdmin.from('subscriptions').update({ status: 'trial_expired' }).eq('id', data.id);
-      const err = new Error('Your 7-day free trial has ended. Subscribe to keep using Presales OS.');
+      const err = new Error('Your free trial has ended. Subscribe to keep using Presales OS.');
       err.status = 402; err.whopUrl = WHOP_PAYMENT_URL;
       throw err;
     }
